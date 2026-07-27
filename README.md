@@ -1,70 +1,246 @@
-# Figma → Production
+# 🎨 Figma → Production
 
-**Change one design token. Watch every app update.**
+> **Change one token. Update every platform.**
 
-An interactive demo of a design-token pipeline: a value edited in Figma travels through export, review, CI, and build, and lands in a web dashboard and a native mobile screen — without an engineer touching a UI file.
+An interactive case study demonstrating how a centralized design token pipeline keeps Web, iOS, Android, and documentation perfectly synchronized.
 
-🔗 **[Live demo](https://dhaval-sukharamwala.github.io/figma-to-production/)**
+🌐 **Live Demo:** https://dhaval-sukharamwala.github.io/figma-to-production/
 
 ---
 
-## What this is
+## Overview
 
-A design token is a named value stored once — `color/primary`, `space/md`, `radius/md` — and referenced everywhere instead of being retyped per platform. This page makes that idea tangible by letting you edit tokens and watch the consequences propagate through a simulated end-to-end pipeline.
+Modern products often maintain multiple platforms, each with its own implementation of colors, typography, spacing, radius, and elevation.
 
-It's a portfolio piece about a **product decision**, not a build tool: where should consistency live? The argument is that it belongs in the build rather than in documentation and memory.
+Without automation, every design update requires developers to manually copy values into multiple codebases, creating:
 
-## What it demonstrates
+- ❌ Visual inconsistencies
+- ❌ Design drift
+- ❌ Manual effort
+- ❌ Slower releases
 
-The page is a seven-part scroll narrative:
+This project demonstrates how a **single design decision in Figma** automatically propagates across every platform using Design Tokens, GitHub Actions, and Style Dictionary.
 
-| # | Section | What happens |
-|---|---------|--------------|
-| 1 | **Token** | Seven editable variables from a Figma collection (`color/primary`, `color/surface`, `color/text`, `elevation/md`, `radius/md`, `space/md`, `type/size-body`) with light and dark modes, plus a live contrast check. |
-| 2 | **Pipeline** | Figma export → `tokens.json` → git commit → GitHub Action → Style Dictionary → Vercel deploy → mobile bundle. Delays are deliberate, so the timing reads as real. |
-| 3 | **Code** | The build output in three platform-native forms: `tokens.css` (hex), `Tokens.swift` (normalised floats), `tokens.xml` (dp). Nobody converted anything by hand. |
-| 4 | **Apps** | A React web dashboard and an iOS/Android screen, both re-rendered from the files the build just wrote. Different layouts, identical values. |
-| 5 | **Numbers** | What one publish moved: 276 tokens, 8 platforms, 2 themes. |
-| 6 | **Why** | The same spacing change handled two ways — two days and four chances to mistype, versus one review. |
-| 7 | **Outcome** | The business goal, the decision, and what it buys: one review instead of one sweep per platform, no accumulating visual drift, dark mode as a value swap, contrast checked at build time. |
+---
 
-## Scope and honesty
+## The Problem
 
-The pipeline is **simulated**. There is no live Figma file, no real CI run, and no deploy behind the buttons — the timings are modelled to match what the real steps cost.
+Traditional workflows rely on manual synchronization.
 
-The demo is also explicit that tokens remove **manual retyping, not deployment latency**. Web picks up a change on the next deploy; mobile picks it up on the next app release. That constraint is part of the point, not a gap in the demo.
+```text
+Designer updates Figma
+        ↓
+Developer copies values
+        ↓
+Web updated
+        ↓
+iOS updated
+        ↓
+Android updated
+        ↓
+Documentation updated
+```
 
-## Tech
+This process is repetitive, error-prone, and difficult to scale.
 
-Static site, deployed on GitHub Pages. No build step required to view it — open the page and scroll.
+---
 
-> Adjust this section to match the actual stack (framework, bundler, dependencies) before publishing.
+## The Solution
 
-## Running locally
+```text
+Figma Variables
+        ↓
+Design Tokens
+        ↓
+GitHub Repository
+        ↓
+GitHub Actions (CI/CD)
+        ↓
+Style Dictionary
+        ↓
+CSS • Swift • Android XML • JSON
+        ↓
+Applications Updated
+```
+
+One source of truth.
+
+Every platform stays synchronized.
+
+---
+
+## 👀 Visual Learning
+
+### From Design Decision to Production
+
+The infographic below summarizes the complete lifecycle of a design token—from editing a variable in **Figma** to automatically generating production-ready assets for **Web, iOS, Android, and documentation**.
+
+<p align="center">
+  <img src="figma-to-production.png"
+       alt="Figma to Production – Automated Design Token Pipeline"
+       width="100%">
+</p>
+
+### What you'll learn
+
+- 🎨 How Figma Variables become Design Tokens
+- ⚙️ How GitHub Actions automates the workflow
+- 📦 How Style Dictionary generates platform-specific code
+- 📱 How Web, iOS, and Android stay perfectly synchronized
+- 🚀 Why automated design systems scale better than manual workflows
+
+> **Key takeaway:** Change a token once in Figma. Every platform stays synchronized through an automated pipeline.
+
+---
+
+# Features
+
+### ✅ Editable Design Tokens
+
+- Colors
+- Typography
+- Spacing
+- Radius
+- Elevation
+
+### ✅ Live Pipeline Simulation
+
+- Figma Export
+- Git Commit
+- GitHub Actions
+- Style Dictionary
+- Platform Builds
+
+### ✅ Multi-platform Outputs
+
+- CSS Variables
+- Swift Tokens
+- Android XML
+- JSON Documentation
+
+### ✅ Live Applications
+
+- React Web Dashboard
+- Native Mobile UI
+
+### ✅ Accessibility
+
+- Contrast validation
+- Light & Dark mode support
+
+---
+
+# Project Walkthrough
+
+| Section | Purpose |
+|----------|---------|
+| 🎨 Token Editor | Modify design tokens directly |
+| ⚙️ Pipeline | Watch the CI/CD workflow |
+| 💻 Generated Code | View platform-specific outputs |
+| 📱 Applications | Compare Web and Mobile rendering |
+| 📊 Metrics | Quantify consistency across platforms |
+| 💡 Business Value | Explain why design tokens matter |
+| 🚀 Outcome | Demonstrate the end-to-end impact |
+
+---
+
+# Business Impact
+
+This workflow reduces repetitive work by moving design decisions into an automated pipeline.
+
+### Benefits
+
+- 🚀 Faster design-to-development handoff
+- 🎯 Consistent UI across every platform
+- 🔁 Eliminates manual copy-paste
+- 📦 Single source of truth
+- ♿ Accessibility built into the workflow
+- 📈 Scales effortlessly as products grow
+
+---
+
+# My Role
+
+I designed and built this end-to-end portfolio case study, including:
+
+- UX Strategy
+- Information Architecture
+- Design System Planning
+- Design Token Architecture
+- Interactive Prototype
+- Pipeline Visualization
+- Technical Storytelling
+- Front-end Development
+
+---
+
+# Technical Stack
+
+- HTML
+- CSS
+- JavaScript
+- GitHub Pages
+- GitHub Actions *(simulated)*
+- Style Dictionary *(simulated)*
+- Figma Variables
+- Design Tokens
+
+---
+
+# Scope
+
+This project intentionally simulates the automation pipeline.
+
+There is **no live Figma API**, **real CI/CD execution**, or **production deployment** running behind the scenes.
+
+The simulation accurately represents how a modern design token workflow operates while keeping the project lightweight and easy to explore.
+
+---
+
+# Run Locally
 
 ```bash
 git clone https://github.com/dhaval-sukharamwala/figma-to-production.git
+
 cd figma-to-production
 
-# any static server works
 python3 -m http.server 8000
+
 # or
+
 npx serve .
 ```
 
-Then open `http://localhost:8000`.
+Open:
 
-## Deployment
-
-Published via GitHub Pages from this repository. Pushing to the deployment branch updates the live site.
-
-## Author
-
-**Dhaval Sukharamwala**
-[Email](mailto:dhavaldvl00@gmail.com) · [LinkedIn](https://www.linkedin.com/in/dhaval-sukharamwala/)
-
-Design systems · design tokens · web, iOS, Android · accessibility
+```text
+http://localhost:8000
+```
 
 ---
 
-© 2026 Dhaval Sukharamwala
+# Deployment
+
+The project is deployed using **GitHub Pages**.
+
+Every push to the deployment branch automatically updates the live demo.
+
+---
+
+# Author
+
+**Dhaval Sukharamwala**
+
+Senior UI/UX Designer • Product Designer • Design Systems
+
+📧 dhavaldvl00@gmail.com
+
+💼 https://www.linkedin.com/in/dhaval-sukharamwala/
+
+---
+
+## Key Takeaway
+
+> **Design decisions should live in code, not in memory.**
+
+A centralized design token pipeline transforms one update in Figma into consistent experiences across every platform—making products faster to build, easier to maintain, and more reliable at scale.
